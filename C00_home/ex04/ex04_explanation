@@ -1,0 +1,46 @@
+#include <unistd.h>
+
+void ft_is_negative(int n);
+
+int main(void)
+{
+	ft_is_negative(5);
+}
+
+void ft_is_negative(int n)
+{
+	if(n < 0)
+	{
+		char c = 'N';
+		write(1, &c, 1);
+	}
+	else
+	{
+		char c = 'P';
+		write(1, &c, 1);
+	}
+}
+
+
+#include <unistd.h> // library required for write function
+
+void ft_is_negative(int n); // prototype to let main know that ft_is_negative exists
+
+int main(void)
+{
+	ft_is_negative(5); // main runs ft_is_negative function. the argument (5 in this case) is the int that is fed into the ft_is_negative function
+}
+
+void ft_is_negative(int n) // ft_is_negative takes an int (n) as an argument
+
+if(n < 0)
+	{
+		char c = 'N';
+		write(1, &c, 1); // if n < 0, it is negative, set char c to 'N', write c
+	}
+
+else
+	{
+		char c = 'P';
+		write(1, &c, 1); // else if it is not negative, it is positive, set char c to 'P', write c
+	}
