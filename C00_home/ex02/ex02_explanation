@@ -1,0 +1,38 @@
+ex02:
+Create a function that displays the alphabet in lowercase, on a single line, by
+desscending order, starting from the letter ’z’
+
+
+#include <unistd.h>
+
+void ft_print_reverse_alphabet(void);
+
+int main(void)
+{
+	ft_print_reverse_alphabet();
+}
+
+void ft_print_reverse_alphabet(void)
+{
+	for(char c = 'z'; c >= 'a'; c--)
+	{
+		write(1, &c, 1);
+	}
+}
+
+#include <unistd.h> // gets the library for the write function
+
+void ft_print_reverse_alphabet(void); // prototype for ft_print_reverse_alphabet so that main knows that it exists
+
+int main(void)
+{
+        ft_print_reverse_alphabet(); // main runs the ft_print_reverse_alphabet function
+}
+
+void ft_print_reverse_alphabet(void) // ft_print_reverse_alphabet function accepts no arguments and returns nothing
+
+for(char c = 'z'; c >= 'a'; c--) // for loop, sets char c to 'z', then while c is > or = 'a' performs write function, subtracts 1 
+from 'z' (decreasing to the next letter), and repeats
+
+write(1, &c, 1); // write function from <unistd.h> library outputs to standard output, gets characters from character array c, 
+and writes at the size of a single char (1 byte)
