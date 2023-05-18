@@ -5,12 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmitchel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/18 21:09:32 by tmitchel          #+#    #+#             */
-/*   Updated: 2023/05/18 21:10:42 by tmitchel         ###   ########.fr       */
+/*   Created: 2023/05/18 21:04:57 by tmitchel          #+#    #+#             */
+/*   Updated: 2023/05/18 21:08:27 by tmitchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
+void	ft_is_negative(int n);
+
+int	main(void)
+{
+	ft_is_negative(5);
+}
 
 void	ft_is_negative(int n)
 {
