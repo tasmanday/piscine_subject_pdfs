@@ -1,0 +1,19 @@
+ex00:
+Write a function that displays the character passed as a parameter.
+
+
+
+#include <unistd.h>
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+
+#include <unistd.h> // library that contains write function
+
+void	ft_putchar(char c) // ft_putchar is a function that takes a character, c, as an input argument
+{
+	write(1, &c, 1); // write is a function that has 3 arguments, the first arg 1 means that it uses the standard output, which by default is generally the terminal. The second, &c is the location of the array of characters, c. The third, 1 is the number of bytes, this means that it writes only 1 byte or 1 char at a time.
+}
