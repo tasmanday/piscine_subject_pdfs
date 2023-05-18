@@ -1,0 +1,99 @@
+ex07:
+Create a function that displays the number entered as a parameter. The function
+has to be able to display all possible values within an int type variable.
+
+
+
+#include <unistd.h>
+
+void ft_putchar(char c);
+void ft_putnbr(int nb);
+
+int main(void)
+{
+	ft_putnbr(49204058);
+}
+
+void ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void ft_putnbr(int nb)
+{
+	if (nb > -2147483648 || nb <= 2147483647)
+	{
+		if (nb == -2147483648)
+		{
+			ft_putchar('-');
+			ft_putchar('2');
+			ft_putnbr(147483648);
+		}
+
+		else if (nb < 0)
+		{
+			nb = -nb;
+			ft_putchar('-');
+			ft_putnbr(nb);
+		}
+
+		else if (nb >= 10)
+		{
+			ft_putnbr(nb / 10);
+			ft_putnbr(nb % 10);
+		}
+
+		else
+		{
+			ft_putchar('0' + nb);
+		}
+	}
+}
+
+
+
+#include <unistd.h> // library that contains write function
+
+void ft_putchar(char c); // prototype for ft_putchar, lets main know that it exists
+void ft_putnbr(int nb); // prototype for ft_putnbr
+
+int main(void)
+{
+	ft_putnbr(49204058); // main runs ft_putnbr function using an int as an argument
+}
+
+void ft_putchar(char c)
+{
+	write(1, &c, 1); // ft_putchar writes the characters that it is given
+}
+
+void ft_putnbr(int nb) ft_putnbr uses the int (nb) from main as an argument
+{
+	if (nb > -2147483648 || nb <= 2147483647) // checks that the int (nb) is within the possible values of an int type variable 
+	{
+		if (nb == -2147483648) // -2147483648 is a special case because the range of an integer is -2147483648 to 2147483647. When changing this to a positive number like we do below with all other numbers it would make it 2147483648 which is 1 larger than the maximum integer size of 2147483647. To get around this we use put char to write '-', then '2' and then pass 147483648 back into the ft_putnbr function as normal as it it now smaller than the maximum size of an int.
+		{
+			ft_putchar('-');
+			ft_putchar('2');
+			ft_putnbr(147483648);
+		}
+
+		else if (nb < 0) // if nb is negative convert to a positive int with nb = -nb, write '-', and run the positive nb back through the ft_putnbr function
+		{
+			nb = -nb;
+			ft_putchar('-');
+			ft_putnbr(nb);
+		}
+
+		else if (nb >= 10) // if the nb is > or = 10 this part essentially breaks the number down into it's individual digits by dividing by 10 and feeding the result back into the ft_putnbr function with (nb % 10) giving the final digit as a remainder
+		{
+			ft_putnbr(nb / 10);
+			ft_putnbr(nb % 10);
+		}
+
+		else // this part takes the ingle digit int numbers that are fed back into ft_putnbr from the last section and prints them as a character
+		{
+			ft_putchar('0' + nb);
+		}
+	}
+}
