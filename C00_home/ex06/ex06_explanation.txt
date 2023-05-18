@@ -1,0 +1,80 @@
+exo6:
+Create a function that displays all different combination of two two digits numbers
+(XX XX) between 00 and 99, listed by ascending order.
+
+
+include <unistd.h>
+
+void ft_print_comb2(void);
+
+int main(void)
+{
+	ft_print_comb2();
+}
+
+void ft_print_comb2(void)
+{
+	char digits[7];
+
+	for (int i = 0; i <= 98; i++)
+	{
+		for (int j = i + 1; j <= 99; j++)
+		{
+			digits[0] = '0' + (i / 10);
+			digits[1] = '0' + (i % 10);
+			digits[2] = ' ';
+			digits[3] = '0' + (j / 10);
+			digits[4] = '0' + (j % 10);
+			digits[5] = ',';
+			digits[6] = ' ';
+
+			if (i == 98 && j == 99)
+			{
+				write(1, &digits, 5);
+			}
+			else
+			{
+				write(1, &digits, 7);
+			}
+		}
+	}
+}
+
+
+
+include <unistd.h> // library that includes write function
+
+void ft_print_comb2(void); // prototype to let main know that ft_print_comb2 exists
+
+int main(void)
+{
+	ft_print_comb2(); // main runs ft_print_comb2 function
+}
+
+void ft_print_comb2(void)
+{
+	char digits[7]; // creates an array of chars of size 7, this reserves a location on the memory big enough to store those chars
+
+	for (int i = 0; i <= 98; i++) // sets i to 0, loops until i == 98, increases by 1 each time. Only goes to 98 as all combinations of 99 are already don by the j variable 
+	{
+		for (int j = i + 1; j <= 99; j++) // sets j to 0, loops until j == 99, increases by 1 each time
+		{
+			digits[0] = '0' + (i / 10); // sets the first character of the array as i divided by 10 to get the digit in the 10s position of each 2 digit number from 00 - 98
+			digits[1] = '0' + (i % 10); // (I % 10) gives the remainder after dividing i by 10, this allows us to get the second digit of each 2 digit number. (% is called modulus)
+			digits[2] = ' '; // adds a space between the i numbers and the j numbers
+			digits[3] = '0' + (j / 10); // same as (i / 10) but up to 99
+			digits[4] = '0' + (j % 10); // same as (i % 10)
+			digits[5] = ','; // adds a ',' after each set of 2 numbers
+			digits[6] = ' '; // adds a ' ' after each set of 2 numbers
+
+			if (i == 98 && j == 99)
+			{
+				write(1, &digits, 5); // skips the ', ' at the end of the function
+			}
+			else
+			{
+				write(1, &digits, 7); // prints all 7 chars of the array (XX XX, )
+			}
+		}
+	}
+}
