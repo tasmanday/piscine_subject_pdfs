@@ -1,16 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_print_alphabet_main.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmitchel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/18 17:07:04 by tmitchel          #+#    #+#             */
-/*   Updated: 2023/05/18 17:16:29 by tmitchel         ###   ########.fr       */
+/*   Created: 2023/05/18 17:26:09 by tmitchel          #+#    #+#             */
+/*   Updated: 2023/05/18 17:27:40 by tmitchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
+void	ft_print_alphabet(void);
+
+int	main(void)
+{
+	ft_print_alphabet();
+}
 
 void	ft_print_alphabet(void)
 {
