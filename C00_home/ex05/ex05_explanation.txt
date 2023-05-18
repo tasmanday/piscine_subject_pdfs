@@ -1,0 +1,92 @@
+ex05:
+Create a function that displays all different combnationsof three different digits in ascending 
+order, listed in ascending order.
+987 isn't there because 789 already is.
+999 isn't there because the digit '9' is present more than once.
+
+
+
+#include <unistd.h>
+
+void ft_print_comb(void);
+
+int main(void)
+{
+	ft_print_comb();
+}
+
+void ft_print_comb(void)
+{
+	char digits[5];
+	
+	for (int i = 0; i <= 7; i++)
+	{
+		for (int j = i + 1; j <= 8; j++)
+		{
+			for (int k = j + 1; k <= 9; k++)
+			{
+				digits[0] = '0' + i;
+				digits[1] = '0' + j;
+				digits[2] = '0' + k;
+				digits[3] = ',';
+				digits[4] = ' ';
+
+				if (i == 7 && j == 8 && k == 9)
+				{
+					write(1, &digits, 3);
+				}
+				else
+				{
+					write(1, &digits, 5);
+				}
+			}
+		}
+	}
+}
+
+
+
+#include <unistd.h> // library that includes the write function
+
+void ft_print_comb(void); prototype so that main knows that ft_print_comb exists
+
+int main(void)
+{
+	ft_print_comb(); // main runs the ft_print_comb function
+}
+
+void ft_print_comb(void) // ft_print_comb takes on argument and returns nothing
+{
+	char digits[5]; // creates an array of characters called 'digits' of size 5. this reserves a 
+location and space in the ram
+	
+	for (int i = 0; i <= 7; i++) // sets int i to 0 and loops until i = 7, increasing by 1 each time
+	{
+		for (int j = i + 1; j <= 8; j++) // sets j to i + 1 and loops until j = 8, increasing 
+by 1 each time
+		{
+			for (int k = j + 1; k <= 9; k++) // sets k to j + 1and loops until j = 9, 
+increasing by 1 each time
+			{
+				digits[0] = '0' + i; // sets the first character in the array digits to 
+'0' + i
+				digits[1] = '0' + j; // ""  "" '0' + j
+				digits[2] = '0' + k; // ""  "" '0' + k
+				digits[3] = ','; // ""  "" ','
+				digits[4] = ' '; // ""  "" ' '
+
+				if (i == 7 && j == 8 && k == 9)
+				{
+					write(1, &digits, 3); // when up to 789 (last combination of 
+the program), only prints the first 3 characters of the digits array, skipping the ', ' at the end
+				}
+				else
+				{
+					write(1, &digits, 5); // if it's not the last combination (789) 
+writes all 5 characters of the digits array, this separates each combination by ', '
+				}
+			}
+		}
+	}
+}
+
