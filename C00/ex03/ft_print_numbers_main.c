@@ -5,12 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmitchel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/18 18:44:38 by tmitchel          #+#    #+#             */
-/*   Updated: 2023/05/18 18:46:45 by tmitchel         ###   ########.fr       */
+/*   Created: 2023/05/18 18:39:15 by tmitchel          #+#    #+#             */
+/*   Updated: 2023/05/18 18:43:08 by tmitchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
+void	ft_print_number(void);
+
+int	main(void)
+{
+	ft_print_number();
+}
 
 void	ft_print_number(void)
 {
