@@ -1,35 +1,56 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tmitchel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/19 20:17:32 by tmitchel          #+#    #+#             */
+/*   Updated: 2023/05/19 21:13:18 by tmitchel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-void ft_print_comb2(void);
+char	g_digits[8];
 
-int main(void)
+void	ft_set_g_digits(int i, int j);
+void	ft_print_comb2(void);
+
+int	main(void)
 {
 	ft_print_comb2();
+	return (0);
 }
 
-void ft_print_comb2(void)
+void	ft_set_g_digits(int i, int j)
 {
-	char digits[7];
+	g_digits[0] = '0' + (i / 10);
+	g_digits[1] = '0' + (i % 10);
+	g_digits[2] = ' ';
+	g_digits[3] = '0' + (j / 10);
+	g_digits[4] = '0' + (j % 10);
+	g_digits[5] = ',';
+	g_digits[6] = ' ';
+	g_digits[7] = '\0';
+}
 
-	for (int i = 0; i <= 98; i++)
+void	ft_print_comb2(void)
+{
+	int		i;
+	int		j;
+
+	i = -1;
+	while (i++ < 98)
 	{
-		for (int j = i + 1; j <= 99; j++)
-		{
-			digits[0] = '0' + (i / 10);
-			digits[1] = '0' + (i % 10);
-			digits[2] = ' ';
-			digits[3] = '0' + (j / 10);
-			digits[4] = '0' + (j % 10);
-			digits[5] = ',';
-			digits[6] = ' ';
-
+		j = i;
+		while (j++ < 99)
+		{			
+			ft_set_g_digits(i, j);
+			write(1, &g_digits, 7);
 			if (i == 98 && j == 99)
 			{
-				write(1, &digits, 5);
-			}
-			else
-			{
-				write(1, &digits, 7);
+				write(1, &g_digits, 5);
 			}
 		}
 	}
