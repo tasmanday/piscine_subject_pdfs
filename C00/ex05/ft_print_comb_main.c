@@ -6,31 +6,31 @@
 /*   By: tmitchel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 21:21:03 by tmitchel          #+#    #+#             */
-/*   Updated: 2023/05/18 23:30:24 by tmitchel         ###   ########.fr       */
+/*   Updated: 2023/05/19 19:52:50 by tmitchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-char	digits[6];
+char	g_digits[6];
 
 void	ft_print_comb(void);
-void	ft_set_digits(int i, int j, int k);
+void	ft_set_g_digits(int i, int j, int k);
 
 int	main(void)
 {
 	ft_print_comb();
-	return 0;
+	return (0);
 }
 
-void	ft_set_digits(int i, int j, int k)
+void	ft_set_g_digits(int i, int j, int k)
 {	
-	digits[0] = '0' + i;
-	digits[1] = '0' + j;
-	digits[2] = '0' + k;
-	digits[3] = ',';
-	digits[4] = ' ';
-	digits[5] = '\0';
+	g_digits[0] = '0' + i;
+	g_digits[1] = '0' + j;
+	g_digits[2] = '0' + k;
+	g_digits[3] = ',';
+	g_digits[4] = ' ';
+	g_digits[5] = '\0';
 }
 
 void	ft_print_comb(void)
@@ -39,20 +39,20 @@ void	ft_print_comb(void)
 	int		j;
 	int		k;
 
-	i = 0;
-	while (i++ <= 7)
+	i = -1;
+	while (i++ < 7)
 	{
-		j = i + 1;
-		while (j++ <= 8)
+		j = i;
+		while (j++ < 8)
 		{
-			k = j + 1;
-			while (k++ <= 9)
+			k = j;
+			while (k++ < 9)
 			{
-				ft_set_digits(i - 1, j - 1, k - 1);
-				write(1, &digits, 5);
+				ft_set_g_digits(i, j, k);
+				write(1, &g_digits, 5);
 				if (i == 7 && j == 8 && k == 9)
 				{
-					write(1, &digits, 3);
+					write(1, &g_digits, 3);
 				}
 			}
 		}
