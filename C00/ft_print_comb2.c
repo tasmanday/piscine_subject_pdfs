@@ -6,7 +6,7 @@
 /*   By: tmitchel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 20:17:32 by tmitchel          #+#    #+#             */
-/*   Updated: 2023/05/19 21:54:32 by tmitchel         ###   ########.fr       */
+/*   Updated: 2023/05/19 21:52:27 by tmitchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@ char	g_digits[8];
 void	ft_set_g_digits(int i, int j);
 void	ft_print_comb2(void);
 void	ft_put_comb(int i, int j);
+
+int	main(void)
+{
+	ft_print_comb2();
+	return (0);
+}
 
 void	ft_set_g_digits(int i, int j)
 {
