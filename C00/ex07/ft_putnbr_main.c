@@ -6,7 +6,7 @@
 /*   By: tmitchel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 21:59:01 by tmitchel          #+#    #+#             */
-/*   Updated: 2023/05/19 22:03:54 by tmitchel         ###   ########.fr       */
+/*   Updated: 2023/05/19 22:02:02 by tmitchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 void	ft_putchar(char c);
 void	ft_putnbr(int nb);
+
+int	main(void)
+{
+	ft_putnbr(49204058);
+}
 
 void	ft_putchar(char c)
 {
