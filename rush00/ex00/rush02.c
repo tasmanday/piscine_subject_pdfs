@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush00.c                                           :+:      :+:    :+:   */
+/*   rush02.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adatta-g <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tsu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/20 11:31:48 by adatta-g          #+#    #+#             */
-/*   Updated: 2023/05/21 19:52:12 by tmitchel         ###   ########.fr       */
+/*   Created: 2023/05/20 14:52:27 by tsu               #+#    #+#             */
+/*   Updated: 2023/05/21 19:53:21 by tmitchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+void	ft_putchar(char c);
 
-void	ft_putchar( char c);
-
-void	helpr0(int row, int nrow, int col, int ncol)
+void	helpr2(int row, int nrow, int col, int ncol)
 {
 	if ((row == 0 && col == 0) || (row == 0 && col == ncol - 1))
 	{
-		ft_putchar('o');
+		ft_putchar('A');
 	}
-	else if (row == nrow - 1 && col == ncol - 1)
+	else if ((row == nrow -1 && col == ncol -1) || (row == nrow -1 && col == 0))
 	{
-		ft_putchar('o');
+		ft_putchar('C');
 	}
-	else if (row == nrow - 1 && col == 0)
+	else if (row == 0 || row == nrow -1)
 	{
-		ft_putchar('o');
+		ft_putchar('B');
 	}
-	else if (row == 0 || row == nrow - 1)
+	else if (col == 0 || col == ncol -1)
 	{
-		ft_putchar('-');
-	}
-	else if (col == 0 || col == ncol - 1)
-	{
-		ft_putchar('|');
+		ft_putchar('B');
 	}
 	else
 	{
@@ -40,7 +35,7 @@ void	helpr0(int row, int nrow, int col, int ncol)
 	}
 }
 
-void	rush00(int ncol, int nrow)
+void	rush02(int ncol, int nrow)
 {
 	int	row;
 	int	col;
@@ -55,7 +50,7 @@ void	rush00(int ncol, int nrow)
 		col = 0;
 		while (col < ncol)
 		{
-			helpr0(row, nrow, col, ncol);
+			helpr2(row, nrow, col, ncol);
 			col ++;
 		}
 		ft_putchar('\n');
