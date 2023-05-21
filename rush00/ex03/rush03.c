@@ -6,7 +6,7 @@
 /*   By: tmitchel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 13:55:55 by tmitchel          #+#    #+#             */
-/*   Updated: 2023/05/20 14:44:56 by tmitchel         ###   ########.fr       */
+/*   Updated: 2023/05/21 15:43:08 by tmitchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,19 @@ void	helpr(int row, int nrow, int col, int ncol)
 	{
 		ft_putchar('A');
 	}
-	else if ((row == 0 && col == ncol -1))
+	else if (row == 0 && col == ncol - 1)
 	{
 		ft_putchar('C');
 	}
-	else if (row == nrow -1 && col == ncol -1)
+	else if (row == nrow - 1 && col == ncol - 1)
 	{
 		ft_putchar('C');
 	}
-	else if ((row == 0 || row == nrow -1) && (col == 0 || col == ncol -1))
+	else if (row == 0 || row == nrow - 1)
+	{
+		ft_putchar('B');
+	}
+	else if (col == 0 || col == ncol - 1)
 	{
 		ft_putchar('B');
 	}
@@ -49,7 +53,7 @@ void	rush03(int ncol, int nrow)
 	while (row < nrow)
 	{
 		col = 0;
-		while (col < nrow)
+		while (col < ncol)
 		{
 			helpr(row, nrow, col, ncol);
 			col++;
