@@ -1,0 +1,25 @@
+#include <unistd.h>
+
+void	ft_putstr(char *str);
+
+int	main(void)
+{
+	char	*str;			// declare a pointer to a string (*str)
+
+	str = "hello";			// set contents of string us ing quotation marks
+	ft_putstr(str);			// call ft_putstr function feeding it the string at str
+	return (0);			// return (0) to terminate function
+}
+
+void	ft_putstr(char *str)		// ft_putstr takes a pointer to the first of a string of chars as a perameter
+{
+	int		i;
+
+	i = 0;
+	while (str[i] != '\0')		// iterate through the characters in str[] until you reach null ('\0') which 
+	{				   signifies the end of the string
+		write(1, &str[i], 1);	// write prints str[i] one char at a time
+		i++;
+	}
+}
+
