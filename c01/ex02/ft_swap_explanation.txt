@@ -1,0 +1,44 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tmitchel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/22 15:45:32 by tmitchel          #+#    #+#             */
+/*   Updated: 2023/05/22 16:37:12 by tmitchel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdio.h>
+
+void	ft_swap(int *a, int *b);
+
+int	main(void)
+{
+	int		*a;			// declare integer pointers *a & *b
+	int		*b;
+	int		i;			// declare integers i & j
+	int		j;
+
+	i = 2;					// assign value to i & j
+	j = 4;
+	a = &i;					// assign addresses of i & j to int pointers *a & *b respectively
+	b = &j;
+
+	printf("a = %i, b = %i \n", *a, *b);	// print the values of a & b. '*a' & '*b' dereference the pointers to 
+						   obtain the values that they point to
+	ft_swap(a, b);				// calls the ft_swap function and passes the addresses of i & j (stored
+						   in a & b) as arguments. ft_swap swaps the values of i & j
+	printf("a = %i, b = %i \n", *a, *b);	// print the values of a & b. '*a' & '*b' dereference the pointers to 
+}						   obtain the values that they point to. These values have been swapped 
+						   by the ft_swap function in the previous line
+
+void	ft_swap(int *a, int *b)
+{
+	int		c;
+
+	c = *a;					// assigns the value pointed to by a to int c
+	*a = *b;				// assigns the value pointed to by b to the int pointed to by a
+	*b = c;					// assigns the value of int c to the int pointed to by b
+}

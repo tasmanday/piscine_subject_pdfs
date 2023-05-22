@@ -1,0 +1,18 @@
+#include <stdio.h>		 // library for printf function
+
+void	ft_ft(int *nbr);	 // prototype for ft_ft function
+
+int	main(void)	
+{
+	int		*nbr;	 // declares a pointer to an int called 'nbr'
+	int		n;	 // declares an int 'n'
+
+	nbr = &n;		 // assigns the adress of 'n' (&n) to 'nbr' so that 'nbr' points to 'n'
+	ft_ft(nbr);		 // calls ft_ft function, feeds it 'nbr' (pointer to 'n'), which then sets value to 42
+	printf("%i \n", n);	 // prints int 'n' and a new line
+}
+
+void	ft_ft(int *nbr)	 	 // function ft_ft returns nothing (void) and takes a pointer to an int (*nbr) as a
+{				    parameter
+	*nbr = 42;		 // dereferences the pointer (accesses the value that the pointer is pointing to, in
+}				    this case 'n') and assigns it the integer value 42

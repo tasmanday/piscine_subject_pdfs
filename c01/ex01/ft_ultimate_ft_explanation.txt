@@ -1,0 +1,39 @@
+#include <stdio.h>				// library for printf function
+
+void	ft_ultimate_ft(int *********nbr);	// prototype for ft_ultimate_ft function, takes a pointer to a
+						   pointer... ... to an int as a parameter
+
+int	main(void)				// main function
+{
+	int		n;			// declares an int 'n'
+	int		*nbr8;			// declares a pointer to an int '*nbr8'
+	int		**nbr7;			// declares a pointer to a pointer to an int '**nbr7'
+	int		***nbr6;
+	int		****nbr5;
+	int		*****nbr4;
+	int		******nbr3;
+	int		*******nbr2;
+	int		********nbr1;
+	int		*********nbr;
+
+	n = 0;					// sets int value of 'n' to 0
+
+	nbr8 = &n;				// assigns the address of n (&n) to nbr8 so that *nbr8 points to n
+	nbr7 = &nbr8;				// assigns &nbr8 to nbr7 so that *nbr7 points to nbr8 which points to n
+	nbr6 = &nbr7;
+	nbr5 = &nbr6;
+	nbr4 = &nbr5;
+	nbr3 = &nbr4;
+	nbr2 = &nbr3;
+	nbr1 = &nbr2;
+	nbr = &nbr1;
+
+	ft_ultimate_ft(nbr);			// calls ft_ultimate_ft function, feeds it nbr (pointer to pointer
+						   to ... to pointer to n). ft_ultimate_ft then sets n to 42
+	printf("%i \n", n);			// prints int 'n' and a new line
+}
+
+void	ft_ultimate_ft(int *********nbr)	// function returns nothing and takes (int *********nbr) pointer to ...
+{						   to pointer to int as a parameter
+	*********nbr = 42;			// dereferences the pointer (accesses the value that the pointer is 
+}				    		   pointing to, in this case 'n') and assigns it the integer value 42

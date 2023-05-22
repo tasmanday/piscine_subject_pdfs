@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+void	ft_ultimate_div_mod(int *a, int *b);
+
+int	main(void)
+{
+	int		a;			// declare ints a & b and set their values
+	int		b;
+
+	a = 42;
+	b = 10;
+	printf("a = %i, b = %i \n", a, b);	// print values of a & b before ruction
+	ft_ultimate_div_mod(&a, &b);		// call f_u_d_m, with addresses of a & b as arguments (&a, &b)
+	printf("a / b = %i, mod %i \n", a, b);	// print results after function
+}
+
+void	ft_ultimate_div_mod(int *a, int *b) 	// f_u_d_m function takes pointers to ints a & b as perameters
+{
+	int		div;			// declare temporary ints (div & mod) to store results of calculations
+	int		mod;
+
+	div = *a / *b;				// * is used to access the values of a & b through their pointers. The
+						   result of a / b is stored in int div
+	mod = *a % *b;				// * is used to access the values of a & b through their pointers. The
+						   remainder of a / b is stored in int mod
+	*a = div;				// *a is dereferenced to access the value of a and change it to the value
+						   of int div
+	*b = mod;				// *b is dereferenced to access the value of b and change it to the value
+						   of int mod
+}

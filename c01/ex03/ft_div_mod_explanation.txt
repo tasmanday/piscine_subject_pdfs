@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+void	ft_div_mod(int a, int b, int *div, int *mod);
+
+int	main(void)
+{
+	int		a;				// declare ints a, b, div, and mod
+	int		b;
+	int		div;
+	int		mod;
+
+	a = 42;						// set values of a & b
+	b = 10;
+	ft_div_mod(a, b, &div, &mod);			// call ft_div_mod function with the values of a & b, and the 
+							   addresses of div & mod (&div, &mod). this allows the function
+							   to modify the values of div & mod directly
+
+	printf("%i / %i = %i with remainder of %i \n", a, b, div, mod); // print results
+}
+
+void	ft_div_mod(int a, int b, int *div, int *mod)	// ft_div_mod function takes 4 parameters: ints a & b, and
+							   pointers to ints *div & *mod
+{
+	*div = a / b;					// 'a' is divided by 'b' and the result is stored in the memory
+							   location pointed to by div
+	*mod = a % b;					// the remainder of the division (a % b) is stored in the memory
+							   location pointed to by mod
+}							// the dereference operator '*' is used to access the values of
+							   div and mod through their pointers
