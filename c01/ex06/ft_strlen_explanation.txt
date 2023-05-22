@@ -1,0 +1,26 @@
+#include <stdio.h>				// for printf
+
+int	ft_strlen(char *str);
+
+int	main(void)
+{
+	char	*str;				// declare a pointer to a string and an int for the count value
+	int	len;
+
+	str = "hello";				// assign the string
+	len = ft_strlen(str);			// call ft_strlen which takes a string and returns an int which is then
+						   assigned to len
+	printf("strlen = %i \n", len);		// print len
+}
+
+int	ft_strlen(char *str)			// ft_strlen takes a string of chars as a parameter and returns an int
+{
+	int		i;			// declare int i and set it to 0
+
+	i = 0;
+	while (str[i] != '\0')			// iterate through string one char at a time adding 1 to i for each char 
+	{					   until it gets to nul ('\0')
+		i++;
+	}
+	return (i);				// return i so that it can be fed back into main
+}
