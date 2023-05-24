@@ -1,41 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_srtlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmitchel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/23 19:57:42 by tmitchel          #+#    #+#             */
-/*   Updated: 2023/05/24 15:26:27 by tmitchel         ###   ########.fr       */
+/*   Created: 2023/05/24 18:54:22 by tmitchel          #+#    #+#             */
+/*   Updated: 2023/05/24 18:54:26 by tmitchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* #include <stdio.h> */
 
-char	ft_strcpy(char *dest, char *src);
+char	*ft_strlowcase(char *str);
 
 /* int	main(void)
 {
-	char	*src;
-	char	dest[6];
+	char	str[] = "HELLO ~12";
+	char	*dest;
 
-	src = "hello";
-	printf("src: %s, dest: %s\n", src, dest);
-	ft_strcpy(dest, src);
-	printf("src: %s, dest: %s\n", src, dest);
+
+	dest = ft_strlowcase(str);
+	printf("%s\n", dest);
 	return (0);
 } */
 
-char	ft_strcpy(char *dest, char *src)
+char	*ft_strlowcase(char *str)
 {
 	int		i;
 
 	i = 0;
-	while (src[i] != '\0')
+	while (str[i] != '\0')
 	{
-		dest[i] = src[i];
+		if (str[i] >= 'A' && str[i] <= 'Z')
+		{
+			str[i] = str[i] + 32;
+		}
 		i++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (str);
 }

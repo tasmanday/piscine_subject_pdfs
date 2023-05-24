@@ -1,0 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tmitchel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/23 19:57:42 by tmitchel          #+#    #+#             */
+/*   Updated: 2023/05/24 10:39:42 by tmitchel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdio.h>
+
+char	ft_strcpy(char *dest, char *src);
+
+int	main(void)
+{
+	char	*src;								// declare src as a pointer to char (which will point to the source string)
+	char	dest[6];							// declare dest as an array of char (will be the destination for the copied string)
+
+	src = "hello";								// assigns the memory address of the string "hello" to the 'src' pointer. The 'src' pointer now points to the first char of the string "hello"
+	printf("src: %s, dest: %s\n", src, dest);	// prints the values of 'src' and 'dest' before the ft_strcpy function
+	ft_strcpy(dest, src);						// calls the ft_strcpy function passing the dest and str pointers as arguments
+	printf("src: %s, dest: %s\n", src, dest);	// prints the updated values of 'src and 'dest'
+	return (0);									// terminates the program
+}
+
+char	ft_strcpy(char *dest, char *src)		// ft_strcpy function returns a char and takes 2 parameters both pointers to chars (*dest & *src), both of these arguments are pointers to the first elements of char arrays (strings) in memory 
+{
+	int		i;
+
+	i = 0;
+	while (src[i] != '\0')						// iterates through each char of string 'src' until it gets to the null char
+	{
+		dest[i] = src[i];						// the 'i'th char of 'src' is copied to the 'i'th position of 'dest'
+		i++;
+	}
+	dest[i] = '\0';								//adds a null char to the end of 'dest' if this isn't here future functions that operate on 'dest' won't know where the string finishes
+	return (dest);								// returns a pointer to the start of the 'dest' string
+}

@@ -1,41 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmitchel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/23 19:57:42 by tmitchel          #+#    #+#             */
-/*   Updated: 2023/05/24 15:26:27 by tmitchel         ###   ########.fr       */
+/*   Created: 2023/05/24 15:28:52 by tmitchel          #+#    #+#             */
+/*   Updated: 2023/05/24 16:17:54 by tmitchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* #include <stdio.h> */
 
-char	ft_strcpy(char *dest, char *src);
+char	*ft_strncpy(char *dest, char *src, unsigned int n);
 
 /* int	main(void)
 {
 	char	*src;
-	char	dest[6];
+	char	dest[14];
 
-	src = "hello";
+	src = "hello, world!";
 	printf("src: %s, dest: %s\n", src, dest);
-	ft_strcpy(dest, src);
+	ft_strncpy(dest, src, 5);
 	printf("src: %s, dest: %s\n", src, dest);
 	return (0);
 } */
 
-char	ft_strcpy(char *dest, char *src)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	int		i;
+	unsigned int		i;
 
 	i = 0;
-	while (src[i] != '\0')
+	while (i < n && src[i] != '\0')
 	{
 		dest[i] = src[i];
 		i++;
 	}
-	dest[i] = '\0';
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
+	}
 	return (dest);
 }

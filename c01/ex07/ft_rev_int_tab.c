@@ -1,41 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmitchel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/23 19:57:42 by tmitchel          #+#    #+#             */
-/*   Updated: 2023/05/24 15:26:27 by tmitchel         ###   ########.fr       */
+/*   Created: 2023/05/22 21:29:12 by tmitchel          #+#    #+#             */
+/*   Updated: 2023/05/22 22:26:51 by tmitchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* #include <stdio.h> */
 
-char	ft_strcpy(char *dest, char *src);
+void	ft_rev_int_tab(int *tab, int size);
 
 /* int	main(void)
 {
-	char	*src;
-	char	dest[6];
-
-	src = "hello";
-	printf("src: %s, dest: %s\n", src, dest);
-	ft_strcpy(dest, src);
-	printf("src: %s, dest: %s\n", src, dest);
+	int		tab[5];
+	int		size;
+	
+	tab[0] = 1;
+   	tab[1] = 2;
+	tab[2] = 3;
+	tab[3] = 4;
+	tab[4] = 5;
+	size = 5;
+	ft_rev_int_tab(tab, size);
+	for (int j = 0; j < size; j++)
+	{
+		printf("%i ,", tab[j]);
+	}
 	return (0);
 } */
 
-char	ft_strcpy(char *dest, char *src)
+void	ft_rev_int_tab(int *tab, int size)
 {
-	int		i;
+	int		k;
+	int		l;
+	int		bat[size];
 
-	i = 0;
-	while (src[i] != '\0')
+	l = 0;
+	k = 0;
+	while (k < size)
 	{
-		dest[i] = src[i];
-		i++;
+		bat[k] = tab[k];
+		k++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	k--;
+	while (k >= 0)
+	{
+		tab[l] = bat[k];
+		l++;
+		k--;
+	}
 }
