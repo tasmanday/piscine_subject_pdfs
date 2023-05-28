@@ -1,47 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_recursive_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmitchel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/25 10:38:25 by tmitchel          #+#    #+#             */
-/*   Updated: 2023/05/25 10:51:04 by tmitchel         ###   ########.fr       */
+/*   Created: 2023/05/28 15:28:25 by tmitchel          #+#    #+#             */
+/*   Updated: 2023/05/28 15:30:44 by tmitchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* #include <stdio.h> */
 
-int	ft_strcmp(char *s1, char *s2);
+int	ft_recursive_power(int nb, int power);
 
-/* int main(void)
+/* int	main(void)
 {
-    char    *s1;
-    char    *s2;
-    int     cmp;
+	int		nb;
+	int		power;
+	int		result;
 
-    s1 = "abcd";
-    s2 = "abc";
-    cmp = ft_strcmp(s1, s2);
-    printf("%i\n", cmp);
-    return (0);
+	nb = 2;
+	power = 5;
+	result = ft_recursive_power(nb, power);
+	printf("%i^%i = %i\n", nb, power, result);
+	return (0);
 } */
 
-int	ft_strcmp(char *s1, char *s2)
+int	ft_recursive_power(int nb, int power)
 {
-	int		i;
-
-	i = 0;
-	while (s1[i] != '\0' && s2[i] != '\0')
+	if (power < 0)
+		return (0);
+	if (power == 0)
+		return (1);
+	else
 	{
-		if (s1[i] != s2[i])
-		{
-			return (s1[i] - s2[i]);
-		}
-		i++;
-	}
-	if (i < n)
-	{
-		return (s1[i] - s2[i]);
+		return (nb * ft_recursive_power(nb, power - 1));
 	}
 }

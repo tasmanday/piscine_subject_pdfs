@@ -1,47 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmitchel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/25 10:38:25 by tmitchel          #+#    #+#             */
-/*   Updated: 2023/05/25 10:51:04 by tmitchel         ###   ########.fr       */
+/*   Created: 2023/05/22 18:51:32 by tmitchel          #+#    #+#             */
+/*   Updated: 2023/05/22 20:49:58 by tmitchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* #include <stdio.h> */
+#include <unistd.h>
 
-int	ft_strcmp(char *s1, char *s2);
+void	ft_putstr(char *str);
 
-/* int main(void)
+/* int	main(void)
 {
-    char    *s1;
-    char    *s2;
-    int     cmp;
+	char	*str;
 
-    s1 = "abcd";
-    s2 = "abc";
-    cmp = ft_strcmp(s1, s2);
-    printf("%i\n", cmp);
-    return (0);
+	str = "hello";
+	ft_putstr(str);
+	return (0);
 } */
 
-int	ft_strcmp(char *s1, char *s2)
+void	ft_putstr(char *str)
 {
 	int		i;
 
 	i = 0;
-	while (s1[i] != '\0' && s2[i] != '\0')
+	while (str[i] != '\0')
 	{
-		if (s1[i] != s2[i])
-		{
-			return (s1[i] - s2[i]);
-		}
+		write(1, &str[i], 1);
 		i++;
-	}
-	if (i < n)
-	{
-		return (s1[i] - s2[i]);
 	}
 }

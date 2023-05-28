@@ -1,47 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmitchel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/25 10:38:25 by tmitchel          #+#    #+#             */
-/*   Updated: 2023/05/25 10:51:04 by tmitchel         ###   ########.fr       */
+/*   Created: 2023/05/27 16:01:49 by tmitchel          #+#    #+#             */
+/*   Updated: 2023/05/28 15:50:04 by tmitchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* #include <stdio.h> */
 
-int	ft_strcmp(char *s1, char *s2);
+int	ft_iterative_factorial(int nb);
 
-/* int main(void)
+/* int	main(void)
 {
-    char    *s1;
-    char    *s2;
-    int     cmp;
+	int		nb;
+	int		f;
 
-    s1 = "abcd";
-    s2 = "abc";
-    cmp = ft_strcmp(s1, s2);
-    printf("%i\n", cmp);
-    return (0);
+	nb = 5;
+	f = ft_iterative_factorial(nb);
+	printf("factorial of %i: %i\n", nb, f);
+	return (0);
 } */
 
-int	ft_strcmp(char *s1, char *s2)
+int	ft_iterative_factorial(int nb)
 {
 	int		i;
+	int		f;
 
-	i = 0;
-	while (s1[i] != '\0' && s2[i] != '\0')
+	i = 2;
+	f = 1;
+	if (nb <= 0)
+		return (0);
+	while (i <= nb)
 	{
-		if (s1[i] != s2[i])
-		{
-			return (s1[i] - s2[i]);
-		}
+		f *= i;
 		i++;
 	}
-	if (i < n)
-	{
-		return (s1[i] - s2[i]);
-	}
+	return (f);
 }

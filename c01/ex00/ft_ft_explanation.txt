@@ -8,7 +8,7 @@ int	main(void)
 	int		n;	 // declares an int 'n'
 
 	nbr = &n;		 // assigns the adress of 'n' (&n) to 'nbr' so that 'nbr' points to 'n'
-	ft_ft(nbr);		 // calls ft_ft function, feeds it 'nbr' (pointer to 'n'), which then sets value to 42
+	ft_ft(nbr);		 // calls ft_ft function, feeds it 'nbr' (address of 'n'), which then sets value to 42
 	printf("%i \n", n);	 // prints int 'n' and a new line
 }
 

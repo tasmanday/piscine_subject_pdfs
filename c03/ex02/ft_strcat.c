@@ -1,47 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmitchel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/25 10:38:25 by tmitchel          #+#    #+#             */
-/*   Updated: 2023/05/25 10:51:04 by tmitchel         ###   ########.fr       */
+/*   Created: 2023/05/25 10:53:47 by tmitchel          #+#    #+#             */
+/*   Updated: 2023/05/25 11:40:45 by tmitchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* #include <stdio.h> */
 
-int	ft_strcmp(char *s1, char *s2);
+char	*ft_strcat(char *dest, char *src);
 
-/* int main(void)
+/* int	main(void)
 {
-    char    *s1;
-    char    *s2;
-    int     cmp;
+	char	dest[15] = "Hello, ";
+	char	src[] = "world!";
 
-    s1 = "abcd";
-    s2 = "abc";
-    cmp = ft_strcmp(s1, s2);
-    printf("%i\n", cmp);
-    return (0);
+	printf("original dest: %s, original src: %s\n", dest, src);
+	ft_strcat(dest, src);
+	printf("dest: %s, src: %s\n", dest, src);
 } */
 
-int	ft_strcmp(char *s1, char *s2)
+char	*ft_strcat(char *dest, char *src)
 {
 	int		i;
+	int		j;
 
 	i = 0;
-	while (s1[i] != '\0' && s2[i] != '\0')
+	j = 0;
+	while (dest[i] != '\0')
 	{
-		if (s1[i] != s2[i])
-		{
-			return (s1[i] - s2[i]);
-		}
 		i++;
 	}
-	if (i < n)
+	while (src[j] != '\0')
 	{
-		return (s1[i] - s2[i]);
+		dest[i] = src[j];
+		i++;
+		j++;
 	}
+	dest[i] = '\0';
+	return (dest);
 }

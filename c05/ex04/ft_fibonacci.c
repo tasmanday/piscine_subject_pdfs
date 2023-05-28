@@ -1,47 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmitchel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/25 10:38:25 by tmitchel          #+#    #+#             */
-/*   Updated: 2023/05/25 10:51:04 by tmitchel         ###   ########.fr       */
+/*   Created: 2023/05/28 12:11:13 by tmitchel          #+#    #+#             */
+/*   Updated: 2023/05/28 15:35:29 by tmitchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* #include <stdio.h> */
 
-int	ft_strcmp(char *s1, char *s2);
+int	ft_fibonacci(int index);
 
-/* int main(void)
+/* int	main(void)
 {
-    char    *s1;
-    char    *s2;
-    int     cmp;
+	int		index;
+	int		fib;
 
-    s1 = "abcd";
-    s2 = "abc";
-    cmp = ft_strcmp(s1, s2);
-    printf("%i\n", cmp);
-    return (0);
+	index = 3;
+	fib = ft_fibonacci(index);
+	printf("element number %i of the fibonacci sequence is %i\n", index, fib);
+	return (0);
 } */
 
-int	ft_strcmp(char *s1, char *s2)
+int	ft_fibonacci(int index)
 {
-	int		i;
+	int		fib;
 
-	i = 0;
-	while (s1[i] != '\0' && s2[i] != '\0')
+	if (index < 0)
+		return (-1);
+	else if (index <= 1)
+		return (index);
+	else
 	{
-		if (s1[i] != s2[i])
-		{
-			return (s1[i] - s2[i]);
-		}
-		i++;
+		fib = ft_fibonacci(index - 1) + ft_fibonacci(index - 2);
 	}
-	if (i < n)
-	{
-		return (s1[i] - s2[i]);
-	}
+	return (fib);
 }
