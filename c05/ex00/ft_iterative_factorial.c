@@ -6,7 +6,7 @@
 /*   By: tmitchel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 16:01:49 by tmitchel          #+#    #+#             */
-/*   Updated: 2023/05/28 15:50:04 by tmitchel         ###   ########.fr       */
+/*   Updated: 2023/05/28 19:54:59 by tmitchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,15 @@ int	ft_iterative_factorial(int nb);
 	int		nb;
 	int		f;
 
+	nb = -5;
+	f = ft_iterative_factorial(nb);
+	printf("factorial of %i: %i\n", nb, f);
+	nb = 0;
+	f = ft_iterative_factorial(nb);
+	printf("factorial of %i: %i\n", nb, f);
+	nb = 1;
+	f = ft_iterative_factorial(nb);
+	printf("factorial of %i: %i\n", nb, f);
 	nb = 5;
 	f = ft_iterative_factorial(nb);
 	printf("factorial of %i: %i\n", nb, f);
@@ -32,8 +41,10 @@ int	ft_iterative_factorial(int nb)
 
 	i = 2;
 	f = 1;
-	if (nb <= 0)
+	if (nb < 0)
 		return (0);
+	if (nb == 0 || nb == 1)
+		return (1);
 	while (i <= nb)
 	{
 		f *= i;
