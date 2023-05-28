@@ -6,7 +6,7 @@
 /*   By: tmitchel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 18:13:40 by tmitchel          #+#    #+#             */
-/*   Updated: 2023/05/28 18:31:43 by tmitchel         ###   ########.fr       */
+/*   Updated: 2023/05/28 20:23:38 by tmitchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int argc, char *argv[])
 	int		i;
 
 	i = 1;
-	while (i <= argc)
+	while (i < argc)
 	{
 		ft_putstr(argv[i]);
 		ft_putstr("\n");
