@@ -12,7 +12,7 @@
 
 /* #include <stdio.h> */
 
-char	ft_strcpy(char *dest, char *src);
+char	*ft_strcpy(char *dest, char *src);
 
 /* int	main(void)
 {
@@ -26,7 +26,7 @@ char	ft_strcpy(char *dest, char *src);
 	return (0);
 } */
 
-char	ft_strcpy(char *dest, char *src)
+char	*ft_strcpy(char *dest, char *src)
 {
 	int		i;
 
