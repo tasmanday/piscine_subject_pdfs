@@ -16,7 +16,7 @@
 char	*ft_strjoin(int size, char **strs, char *sep);
 int		ft_strlen(char *str);
 int		ft_total_len(int size, char **strs, char *sep);
-char	*ft_strcpy(char *dest, char *src, int n, int size);
+char	*ft_strcpy(char *dest, char *src);
 
 int	main(void)
 {
@@ -27,10 +27,6 @@ int	main(void)
 
 	size = 4;
 	strs = (char **) malloc(size * sizeof(char *));
-	strs[0] = (char *) malloc((5 + 1) * sizeof(char));
-	strs[1] = (char *) malloc((7 + 1) * sizeof(char));
-	strs[2] = (char *) malloc((3 + 1) * sizeof(char));
-	strs[3] = (char *) malloc((13 + 1) * sizeof(char));
 	strs[0] = "These";
 	strs[1] = "strings";
 	strs[2] = "are";
@@ -39,6 +35,7 @@ int	main(void)
 	result = ft_strjoin(size, strs, sep);
 	printf("%s\n", result);
 	free(result);
+	free(strs);
 	return (0);
 }
 
@@ -47,27 +44,33 @@ char *ft_strjoin(int size, char **strs, char *sep)
 	char	*result;
 	int		t_len;
 	int		i;
+	int		c;
 
-	i = 0:
+	i = 0;
+	c = 0;
 	if (size <= 0)
-		result = "NULL";
-	else if (size == 1)
-		result = strs[0]; // this needs to be fixed, needs malloc
-	else
 	{
-		t_len = ft_total_len(size, *strs, sep);
-		result = (char *) malloc((t_len) * sizeof(char));
-		if (result == NULL)
-			return (NULL);
-		while (i < size);
+		result = (char *) malloc(1 * sizeof(char));
+		result[0] = '\0';
+		return (result);
+	}	
+	t_len = ft_total_len(size, strs, sep);
+	result = (char *) malloc((t_len) * sizeof(char));
+	if (result == NULL)
+		return (NULL);
+	while (i < size)
+	{
+		ft_strcpy(result + c, strs[i]);
+		c += ft_strlen(strs[i]);
+		if (i < (size - 1))
 		{
-			result = ft_strcpy(result, *strs[i], i, size);
-
-
-
-
-
+			ft_strcpy(result + c, sep);
+			c += ft_strlen(sep);
+		}
+		i++;
 	}
+	result[c] = '\0';
+	return (result);
 }
 
 int	ft_total_len(int size, char **strs, char *sep)
@@ -77,13 +80,14 @@ int	ft_total_len(int size, char **strs, char *sep)
 	int		sep_len;
 
 	i = 0;
+	total_len = 0;
 	sep_len = (ft_strlen(sep) * (size - 1));
 	while (i < size)
 	{
-		total_len = total_len + ft_strlen((*strs)[i]);
-		i++
+		total_len += ft_strlen((strs)[i]);
+		i++;
 	}
-	total_len = total_len + sep_len;
+	total_len += sep_len;
 	return (total_len + 1);
 }
 
@@ -99,7 +103,7 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-char	*ft_strcpy(char *dest, char *src, int n, int size)
+char	*ft_strcpy(char *dest, char *src)
 {
 	int		i;
 
@@ -109,7 +113,6 @@ char	*ft_strcpy(char *dest, char *src, int n, int size)
 		dest[i] = src[i];
 		i++;
 	}
-	if (n < (size - 1)
-			dest[i] =
+	dest[i] = '\0';
 	return (dest);
 }
