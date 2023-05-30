@@ -6,13 +6,14 @@
 /*   By: tmitchel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 14:01:13 by tmitchel          #+#    #+#             */
-/*   Updated: 2023/05/30 20:29:25 by tmitchel         ###   ########.fr       */
+/*   Updated: 2023/05/28 20:44:52 by tmitchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* #include <stdio.h> */
 
 int	ft_sqrt(int nb);
+int	ft_sqrt_rec(int low, int high, int nb);
 
 /* int	main(void)
 {
@@ -27,22 +28,28 @@ int	ft_sqrt(int nb);
 
 int	ft_sqrt(int nb)
 {
-	long	i;
-	long	n;
-
-	n = nb;
-
-	if (n == 0)
+	if (nb <= 0)
 		return (0);
-	i = 1;
-	if (n > 0)
-		while (i * i <= n)
-		{
-			if (i * i = n)
-			{
-				return (i);
-			}
-			i++;
-		}
-	return (0);
+	else if (nb == 1)
+		return (1);
+	else
+		return (ft_sqrt_rec(0, nb, nb));
+}
+
+int	ft_sqrt_rec(int low, int high, int nb)
+{
+	int		mid;
+
+	if (low <= high)
+	{
+		mid = low + (high - low) / 2;
+		if (mid * mid == nb)
+			return (mid);
+		else if (mid * mid > nb)
+			return (ft_sqrt_rec(low, (mid - 1), nb));
+		else
+			return (ft_sqrt_rec((mid + 1), high, nb));
+	}
+	else
+		return (0);
 }

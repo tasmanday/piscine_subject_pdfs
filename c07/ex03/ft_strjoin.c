@@ -6,7 +6,7 @@
 /*   By: tmitchel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 13:54:45 by tmitchel          #+#    #+#             */
-/*   Updated: 2023/05/29 17:58:22 by tmitchel         ###   ########.fr       */
+/*   Updated: 2023/05/30 19:36:49 by tmitchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ char	*ft_strjoin(int size, char **strs, char *sep);
 int		ft_strlen(char *str);
 int		ft_total_len(int size, char **strs, char *sep);
 char	*ft_strcpy(char *dest, char *src);
+char	*if_zero(void);
 
-int	main(void)
+/* int	main(void)
 {
 	int		size;
 	char	**strs;
@@ -37,25 +38,19 @@ int	main(void)
 	free(result);
 	free(strs);
 	return (0);
-}
+} */
 
-char *ft_strjoin(int size, char **strs, char *sep)
+char	*ft_strjoin(int size, char **strs, char *sep)
 {
 	char	*result;
-	int		t_len;
 	int		i;
 	int		c;
 
 	i = 0;
 	c = 0;
 	if (size <= 0)
-	{
-		result = (char *) malloc(1 * sizeof(char));
-		result[0] = '\0';
-		return (result);
-	}	
-	t_len = ft_total_len(size, strs, sep);
-	result = (char *) malloc((t_len) * sizeof(char));
+		return (if_zero());
+	result = (char *) malloc((ft_total_len(size, strs, sep)) * sizeof(char));
 	if (result == NULL)
 		return (NULL);
 	while (i < size)
@@ -70,6 +65,15 @@ char *ft_strjoin(int size, char **strs, char *sep)
 		i++;
 	}
 	result[c] = '\0';
+	return (result);
+}
+
+char	*if_zero(void)
+{
+	char	*result;
+
+	result = (char *) malloc(1 * sizeof(char));
+	result[0] = '\0';
 	return (result);
 }
 

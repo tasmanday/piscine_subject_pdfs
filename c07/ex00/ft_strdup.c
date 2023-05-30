@@ -6,18 +6,19 @@
 /*   By: tmitchel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 21:32:12 by tmitchel          #+#    #+#             */
-/*   Updated: 2023/05/29 14:14:55 by tmitchel         ###   ########.fr       */
+/*   Updated: 2023/05/30 21:34:26 by tmitchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-/* #include <stdio.h> */
+#include <stdio.h>
+#include <string.h>
 
 char	*ft_strdup(char *src);
 int		ft_strlen(char *str);
 char	*ft_strcpy(char *dest, char *src);
 
-/* int	main(void)
+int	main(void)
 {
 	char	*src;
 	char	*allocated;
@@ -26,8 +27,9 @@ char	*ft_strcpy(char *dest, char *src);
 	printf("original: %s, @ %p\n", src, src);
 	allocated = ft_strdup(src);
 	printf("ft_copied: %s, @ %p\n", allocated, allocated);
+	printf("%s",strdup(src));
 	return (0);
-} */
+} 
 
 int	ft_strlen(char *str)
 {
