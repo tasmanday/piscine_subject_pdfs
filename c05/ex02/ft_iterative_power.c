@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/* #include <stdio.h> */
+#include <stdio.h>
 
 int	ft_iterative_power(int nb, int power);
 
@@ -41,7 +41,7 @@ int	ft_iterative_power(int nb, int power)
 	while (i < power)
 	{
 		nb = nb * nbr;
-	i++;
+		i++;
 	}
 	return (nb);
 }

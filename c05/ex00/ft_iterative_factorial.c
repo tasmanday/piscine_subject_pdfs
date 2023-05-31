@@ -6,11 +6,11 @@
 /*   By: tmitchel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 16:01:49 by tmitchel          #+#    #+#             */
-/*   Updated: 2023/05/28 19:54:59 by tmitchel         ###   ########.fr       */
+/*   Updated: 2023/05/31 14:06:49 by tmitchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* #include <stdio.h> */
+#include <stdio.h>
 
 int	ft_iterative_factorial(int nb);
 

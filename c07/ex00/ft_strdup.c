@@ -6,7 +6,7 @@
 /*   By: tmitchel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 21:32:12 by tmitchel          #+#    #+#             */
-/*   Updated: 2023/05/30 21:34:26 by tmitchel         ###   ########.fr       */
+/*   Updated: 2023/05/31 21:08:18 by tmitchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,58 @@ int	main(void)
 {
 	char	*src;
 	char	*allocated;
+	char	*str_dup;
 
 	src = "Hello, World!";
 	printf("original: %s, @ %p\n", src, src);
 	allocated = ft_strdup(src);
-	printf("ft_copied: %s, @ %p\n", allocated, allocated);
-	printf("%s",strdup(src));
+	printf("ft_strdup: %s, @ %p\n", allocated, allocated);
+	str_dup = strdup(src);
+	printf("strdup: %s, @ %p\n\n", str_dup, str_dup);
+	src = "@@ -1,4 +1,4 @@";
+	printf("original: %s, @ %p\n", src, src);
+	allocated = ft_strdup(src);
+	printf("ft_strdup: %s, @ %p\n", allocated, allocated);
+	str_dup = strdup(src);
+	printf("strdup: %s, @ %p\n\n", str_dup, str_dup);
+	src = "-(null)";
+	printf("original: %s, @ %p\n", src, src);
+	allocated = ft_strdup(src);
+	printf("ft_strdup: %s, @ %p\n", allocated, allocated);
+	str_dup = strdup(src);
+	printf("strdup: %s, @ %p\n\n", str_dup, str_dup);
+	src = "+";
+	printf("original: %s, @ %p\n", src, src);
+	allocated = ft_strdup(src);
+	printf("ft_strdup: %s, @ %p\n", allocated, allocated);
+	str_dup = strdup(src);
+	printf("strdup: %s, @ %p\n\n", str_dup, str_dup);
+	src = "hello 42";
+	printf("original: %s, @ %p\n", src, src);
+	allocated = ft_strdup(src);
+	printf("ft_strdup: %s, @ %p\n", allocated, allocated);
+	str_dup = strdup(src);
+	printf("strdup: %s, @ %p\n\n", str_dup, str_dup);
+	src = "nOpFnXJ3Cd3eOeb";
+	printf("original: %s, @ %p\n", src, src);
+	allocated = ft_strdup(src);
+	printf("ft_strdup: %s, @ %p\n", allocated, allocated);
+	str_dup = strdup(src);
+	printf("strdup: %s, @ %p\n\n", str_dup, str_dup);
+	src = "EyOsJhn1KECYm";
+	printf("original: %s, @ %p\n", src, src);
+	allocated = ft_strdup(src);
+	printf("ft_strdup: %s, @ %p\n", allocated, allocated);
+	str_dup = strdup(src);
+	printf("strdup: %s, @ %p\n\n", str_dup, str_dup);
+	src = "\0";
+	printf("original: %s, @ %p\n", src, src);
+	allocated = ft_strdup(src);
+	printf("ft_strdup: %s, @ %p\n", allocated, allocated);
+	str_dup = strdup(src);
+	printf("strdup: %s, @ %p\n\n", str_dup, str_dup);
 	return (0);
-} 
+}
 
 int	ft_strlen(char *str)
 {
@@ -62,15 +106,10 @@ char	*ft_strdup(char *src)
 	int		len;
 	char	*dest;
 
-	if (src[0] == '\0')
-		return (0);
-	else
-	{
-		len = ft_strlen(src);
-		dest = (char *) malloc((len + 1) * sizeof(char));
-		if (dest == NULL)
-			return (NULL);
-		dest = ft_strcpy(dest, src);
-		return (dest);
-	}
+	len = ft_strlen(src);
+	dest = (char *) malloc((len + 1) * sizeof(char));
+	if (dest == NULL)
+		return (NULL);
+	dest = ft_strcpy(dest, src);
+	return (dest);
 }
