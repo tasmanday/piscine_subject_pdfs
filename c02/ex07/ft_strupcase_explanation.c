@@ -1,44 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmitchel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/25 10:38:25 by tmitchel          #+#    #+#             */
-/*   Updated: 2023/05/25 10:51:04 by tmitchel         ###   ########.fr       */
+/*   Created: 2023/05/24 18:37:36 by tmitchel          #+#    #+#             */
+/*   Updated: 2023/05/24 18:53:18 by tmitchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* #include <stdio.h> */
 
-int	ft_strcmp(char *s1, char *s2);
+char	*ft_strupcase(char *str);
 
-/* int main(void)
+/* int	main(void)
 {
-    char    *s1;
-    char    *s2;
-    int     cmp;
+	char	str[] = "hello ~12";
+	char	*dest;
 
-    s1 = "abcd";
-    s2 = "abc";
-    cmp = ft_strcmp(s1, s2);
-    printf("%i\n", cmp);
-    return (0);
+
+	dest = ft_strupcase(str);
+	printf("%s\n", dest);
+	return (0);
 } */
 
-int	ft_strcmp(char *s1, char *s2)
+char	*ft_strupcase(char *str)
 {
 	int		i;
 
 	i = 0;
-	while (s1[i] != '\0' && s2[i] != '\0')
+	while (str[i] != '\0')
 	{
-		if (s1[i] != s2[i])
+		if (str[i] >= 'a' && str[i] <= 'z')     // looks through te string to find lowercase letters
 		{
-			return (s1[i] - s2[i]);
+			str[i] = str[i] - 32;               // subtracts 32 from the ASCII value to change them to uppercase
 		}
 		i++;
 	}
-	return (0);
+	return (str);
 }
