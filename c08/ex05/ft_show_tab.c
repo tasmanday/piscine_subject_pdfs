@@ -26,6 +26,7 @@ int main(void)
     ft_show_tab(par);
     free(av);
     free(par);
+    par = NULL;
     return (0);
 } */
 
