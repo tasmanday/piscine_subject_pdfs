@@ -5,7 +5,7 @@
 
 void    ft_show_tab(struct s_stock_str *par);
 char    *ft_itoa(int size, int c);
-int     size_len(int size);
+int     digit_count(int size);
 struct s_stock_str *ft_strs_to_tab(int ac, char **av);
 int		ft_strlen(char *str);
 char	*ft_strdup(char*src);
@@ -83,7 +83,7 @@ char *ft_strdup(char *src)
 	return (dest);
 }
 
-int size_len(int size)      // returns how many digits are in size
+int digit_count(int size)      // returns how many digits are in size
 {
     int     c;
 
@@ -126,7 +126,7 @@ void    ft_show_tab(struct s_stock_str *par)
     i = 0;
     while (par[i].str != 0)                     // iterates through each struct in the array
     {
-        c = size_len(par[i].size);              // calculates the number of digits in the .size feild of the current struct, stores it in int c
+        c = digit_count(par[i].size);              // calculates the number of digits in the .size feild of the current struct, stores it in int c
         char_size = ft_itoa(par[i].size, c);    // converts the .size feild from an int to a string of chars (char_size)
         write(1, par[i].str, par[i].size);      // prints the .str field using the .size field to know how many chars to print
         write(1, "\n", 1);

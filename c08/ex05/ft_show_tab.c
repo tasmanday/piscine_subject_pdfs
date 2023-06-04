@@ -5,7 +5,7 @@
 
 void    ft_show_tab(struct s_stock_str *par);
 char    *ft_itoa(int size, int c);
-int     size_len(int size);
+int     digit_count(int size);
 /* struct s_stock_str *ft_strs_to_tab(int ac, char **av);
 int		ft_strlen(char *str);
 char	*ft_strdup(char*src);
@@ -39,7 +39,7 @@ void    ft_show_tab(struct s_stock_str *par)
     i = 0;
     while (par[i].str != 0)
     {
-        c = size_len(par[i].size);
+        c = digit_count(par[i].size);
         char_size = ft_itoa(par[i].size, c);
         write(1, par[i].str, par[i].size);
         write(1, "\n", 1);
@@ -71,7 +71,7 @@ char    *ft_itoa(int size, int c)
     return (str);
 }
 
-int size_len(int size)
+int digit_count(int size)
 {
     int     c;
 

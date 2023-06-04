@@ -1,44 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmitchel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/25 10:38:25 by tmitchel          #+#    #+#             */
-/*   Updated: 2023/05/25 10:51:04 by tmitchel         ###   ########.fr       */
+/*   Created: 2023/05/22 15:45:32 by tmitchel          #+#    #+#             */
+/*   Updated: 2023/05/22 17:21:41 by tmitchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* #include <stdio.h> */
 
-int	ft_strcmp(char *s1, char *s2);
+void	ft_swap(int *a, int *b);
 
-/* int main(void)
+/* int	main(void)
 {
-    char    *s1;
-    char    *s2;
-    int     cmp;
+	int		*a;
+	int		*b;
+	int		i;
+	int		j;
 
-    s1 = "abcd";
-    s2 = "abc";
-    cmp = ft_strcmp(s1, s2);
-    printf("%i\n", cmp);
-    return (0);
+	i = 2;
+	j = 4;
+	a = &i;
+	b = &j;
+	printf("a = %i, b = %i \n", *a, *b);
+	ft_swap(a, b);
+	printf("a = %i, b = %i \n", *a, *b);
 } */
 
-int	ft_strcmp(char *s1, char *s2)
+void	ft_swap(int *a, int *b)
 {
-	int		i;
+	int		c;
 
-	i = 0;
-	while (s1[i] != '\0' && s2[i] != '\0')
-	{
-		if (s1[i] != s2[i])
-		{
-			return (s1[i] - s2[i]);
-		}
-		i++;
-	}
-	return (0);
+	c = *a;
+	*a = *b;
+	*b = c;
 }
