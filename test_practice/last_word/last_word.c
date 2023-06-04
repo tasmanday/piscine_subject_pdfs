@@ -6,9 +6,11 @@ void    putnstrn(char *str, int a, int z);
 
 int main(int argc, char *argv[])
 {
-    if (argc != 2)
-        return (0);
-    print_last_word(argv[1]);
+    if (argc == 2)
+    {
+        print_last_word(argv[1]);
+    }
+    write(1, "\n", 1);
     return (0);
 }
 
@@ -46,5 +48,4 @@ void    putnstrn(char *str, int a, int z)
         write(1, &str[a], 1);
         a++;
     }
-    write(1, "\n", 1);
 }
