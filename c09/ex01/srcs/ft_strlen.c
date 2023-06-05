@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_boolean.h                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmitchel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/31 16:30:33 by tmitchel          #+#    #+#             */
-/*   Updated: 2023/06/05 10:55:18 by tmitchel         ###   ########.fr       */
+/*   Created: 2023/05/22 20:53:34 by tmitchel          #+#    #+#             */
+/*   Updated: 2023/05/22 21:24:27 by tmitchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BOOLEAN_H
-# define FT_BOOLEAN_H
+/* #include <stdio.h> */
 
-# include <unistd.h>
+int	ft_strlen(char *str);
 
-typedef int	t_bool;
+/* int	main(void)
+{
+	char	*str;
+	int		len;
 
-# define TRUE 1
-# define FALSE 0
+	str = "hello";
+	len = ft_strlen(str);
+	printf("strlen = %i \n", len);
+} */
 
-# define EVEN_MSG "I have an even number of arguments.\n"
-# define ODD_MSG "I have an odd number of arguments.\n"
+int	ft_strlen(char *str)
+{
+	int		i;
 
-# define EVEN(nbr) ((nbr) % 2 == 0)
-
-# define SUCCESS 0
-
-void	ft_putstr(char *str);
-t_bool	ft_is_even(int nbr);
-
-#endif
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
+}

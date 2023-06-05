@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_boolean.h                                       :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmitchel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/31 16:30:33 by tmitchel          #+#    #+#             */
-/*   Updated: 2023/06/05 10:55:18 by tmitchel         ###   ########.fr       */
+/*   Created: 2023/05/22 15:45:32 by tmitchel          #+#    #+#             */
+/*   Updated: 2023/05/22 17:21:41 by tmitchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BOOLEAN_H
-# define FT_BOOLEAN_H
+/* #include <stdio.h> */
 
-# include <unistd.h>
+void	ft_swap(int *a, int *b);
 
-typedef int	t_bool;
+/* int	main(void)
+{
+	int		*a;
+	int		*b;
+	int		i;
+	int		j;
 
-# define TRUE 1
-# define FALSE 0
+	i = 2;
+	j = 4;
+	a = &i;
+	b = &j;
+	printf("a = %i, b = %i \n", *a, *b);
+	ft_swap(a, b);
+	printf("a = %i, b = %i \n", *a, *b);
+} */
 
-# define EVEN_MSG "I have an even number of arguments.\n"
-# define ODD_MSG "I have an odd number of arguments.\n"
+void	ft_swap(int *a, int *b)
+{
+	int		c;
 
-# define EVEN(nbr) ((nbr) % 2 == 0)
-
-# define SUCCESS 0
-
-void	ft_putstr(char *str);
-t_bool	ft_is_even(int nbr);
-
-#endif
+	c = *a;
+	*a = *b;
+	*b = c;
+}

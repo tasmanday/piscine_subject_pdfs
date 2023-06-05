@@ -1,14 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_show_tab.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tmitchel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/05 11:26:00 by tmitchel          #+#    #+#             */
+/*   Updated: 2023/06/05 11:36:56 by tmitchel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_stock_str.h"
 #include <stdlib.h>
 #include <unistd.h>
 
-void    ft_show_tab(struct s_stock_str *par);
-char    *ft_itoa(int size, int c);
-int     digit_count(int size);
-/* struct s_stock_str *ft_strs_to_tab(int ac, char **av);
-int		ft_strlen(char *str);
-char	*ft_strdup(char*src);
+void	ft_show_tab(struct s_stock_str *par);
+char	*ft_itoa(int size, int c);
+int		digit_count(int size);
+/* struct s_stock_str	*ft_strs_to_tab(int ac, char **av);
+int						ft_strlen(char *str);
+char					*ft_strdup(char*src);
 
 int main(void)
 { 
@@ -30,60 +41,60 @@ int main(void)
     return (0);
 } */
 
-void    ft_show_tab(struct s_stock_str *par)
+void	ft_show_tab(struct s_stock_str *par)
 {
-    int     i;
-    int     c;
-    char    *char_size;
+	int		i;
+	int		c;
+	char	*char_size;
 
-    i = 0;
-    while (par[i].str != 0)
-    {
-        c = digit_count(par[i].size);
-        char_size = ft_itoa(par[i].size, c);
-        write(1, par[i].str, par[i].size);
-        write(1, "\n", 1);
-        write(1, char_size, c);
-        write(1, "\n", 1);
-        write(1, par[i].copy, par[i].size);
-        write(1, "\n", 1);
-        free(char_size);
-        i++;
-    }
+	i = 0;
+	while (par[i].str != 0)
+	{
+		c = digit_count(par[i].size);
+		char_size = ft_itoa(par[i].size, c);
+		write(1, par[i].str, par[i].size);
+		write(1, "\n", 1);
+		write(1, char_size, c);
+		write(1, "\n", 1);
+		write(1, par[i].copy, par[i].size);
+		write(1, "\n", 1);
+		free(char_size);
+		i++;
+	}
 }
 
-char    *ft_itoa(int size, int c)
+char	*ft_itoa(int size, int c)
 {
-    char    *str;
-    int     i;
+	char	*str;
+	int		i;
 
-    str = (char *) malloc((c + 1) * sizeof(char));
-    if (str == NULL)
-        return (NULL);
-    str[c] = '\0';
-    i = (c - 1);
-    while (i >= 0)
-    {
-        str[i] = size % 10 + '0';
-        size /= 10;
-        i--;
-    }
-    return (str);
+	str = (char *) malloc((c + 1) * sizeof(char));
+	if (str == NULL)
+		return (NULL);
+	str[c] = '\0';
+	i = (c - 1);
+	while (i >= 0)
+	{
+		str[i] = size % 10 + '0';
+		size /= 10;
+		i--;
+	}
+	return (str);
 }
 
-int digit_count(int size)
+int	digit_count(int size)
 {
-    int     c;
+	int		c;
 
-    if (size == 0)
-        return (1);
-    c = 0;
-    while (size != 0)
-    {
-        (size /= 10);
-        c++;
-    }
-    return (c);
+	if (size == 0)
+		return (1);
+	c = 0;
+	while (size != 0)
+	{
+		(size /= 10);
+		c++;
+	}
+	return (c);
 }
 
 /* struct s_stock_str *ft_strs_to_tab(int ac, char **av)

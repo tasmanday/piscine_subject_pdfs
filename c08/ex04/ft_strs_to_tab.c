@@ -6,7 +6,7 @@
 /*   By: tmitchel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 13:54:03 by tmitchel          #+#    #+#             */
-/*   Updated: 2023/06/01 18:24:02 by tmitchel         ###   ########.fr       */
+/*   Updated: 2023/06/05 11:24:17 by tmitchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-struct s_stock_str *ft_strs_to_tab(int ac, char **av);
-int		ft_strlen(char *str);
-char	*ft_strdup(char*src);
+int					ft_strlen(char *str);
+char				*ft_strdup(char *src);
+struct	s_stock_str	*ft_strs_to_tab(int ac, char **av);
 
 /* int	main(void)
 {
@@ -34,16 +34,17 @@ char	*ft_strdup(char*src);
 	result = ft_strs_to_tab(ac, av);
 	while (i <= ac)
 	{
-		printf("size: %i, str: %s, copy: %s\n", result[i].size, result[i].str, result[i].copy);
+		printf("size: %i, str: %s, copy: %s\n", \
+		result[i].size, result[i].str, result[i].copy);
 		i++;
 	}	
 	return (0);
 } */
 
-struct s_stock_str *ft_strs_to_tab(int ac, char **av)
+struct	s_stock_str	*ft_strs_to_tab(int ac, char **av)
 {
 	t_stock_str	*array;
-	int		i;
+	int			i;
 
 	i = 0;
 	array = (t_stock_str *) malloc((ac + 1) * sizeof(t_stock_str));
@@ -74,7 +75,7 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-char *ft_strdup(char *src)
+char	*ft_strdup(char *src)
 {
 	int		len;
 	int		i;
