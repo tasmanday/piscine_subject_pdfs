@@ -6,14 +6,14 @@
 #    By: tmitchel <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/05 11:55:13 by tmitchel          #+#    #+#              #
-#    Updated: 2023/06/05 13:36:55 by tmitchel         ###   ########.fr        #
+#    Updated: 2023/06/06 21:34:28 by tmitchel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-SRCDIR = strs
+SRCDIR = srcs
 INCDIR = includes
-SRCS = $(wildcard $(SRCDIR)/*.c)
+SRCS = $(SRCDIR)/ft_putchar.c $(SRCDIR)/ft_swap.c $(SRCDIR)/ft_putstr.c $(SRCDIR)/ft_strlen.c $(SRCDIR)/ft_strcmp.c
 OBJS = $(SRCS:%.c=%.o)
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -I$(INCDIR)
@@ -21,7 +21,7 @@ CFLAGS = -Wall -Wextra -Werror -I$(INCDIR)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	ar -rcs $(NAME) $(OBJS)
 
 $(SRCDIR)/%.o: $(SRCDIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@

@@ -1,3 +1,4 @@
-gcc -c *.c
-ar rcs libft.a *.o
+#!/bin/sh
+cc -c -Wall -Wextra -Werror *.c
+ar -rcs libft.a *.o
 rm -rf *.o

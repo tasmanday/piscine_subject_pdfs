@@ -1,0 +1,37 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: tmitchel <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/06/05 11:55:13 by tmitchel          #+#    #+#              #
+#    Updated: 2023/06/05 15:55:44 by tmitchel         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = libft.a 								# sets variable NAME to libft.a
+SRCDIR = strs								# sets SRCDIR (source directory) to 'strs'
+INCDIR = includes							# sets INCDIR (directory for header files) to 'includes'
+SRCS = $(wildcard $(SRCDIR)/*.c)			# sets variable SRCS to all .c filesin the SCRDIR. wildcard returns all names that match the pattern
+OBJS = $(SRCS:%.c=%.o)						# sets OBJS which is a list of object files that will be produced from the .c scource files. %.c=%.o replaces the .c extension with .o
+CC = cc
+CFLAGS = -Wall -Wextra -Werror -I$(INCDIR)	# -I$(INCDIR) tells the compiler to look in the includes directory for header files
+
+all: $(NAME)								# kind of like the main function
+
+$(NAME): $(OBJS)
+	ar rcs $(NAME) $(OBJS)					# creates the library file (archive), rcs replaces existing files or inserts new files into archive, creates an archive if it doesnt exist, and writes an object file index  
+
+$(SRCDIR)/%.o: $(SRCDIR)/%.c
+	$(CC) $(CFLAGS) -c $< -o $@				# compiles the source file into object files
+
+clean:
+	rm -f $(OBJS)							# removes temporary files cheated by OBJS
+
+fclean: clean								# runs clean and then removes the library file
+	rm -f $(NAME)
+
+re: fclean all								# runs fclean and then does a rebuild of everything
+
+.PHONY: all clean fclean re 				# tells make that these are not files
