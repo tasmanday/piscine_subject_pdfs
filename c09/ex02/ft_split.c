@@ -74,7 +74,7 @@ char	*malloc_word(char *str, char *charset, int *i)
 	{
 		j++;
 	}
-	word = (char*) malloc((j + 1) * sizeof(char));
+	word = (char *) malloc((j + 1) * sizeof(char));
 	if (word == NULL)
 		return (NULL);
 	k = 0;

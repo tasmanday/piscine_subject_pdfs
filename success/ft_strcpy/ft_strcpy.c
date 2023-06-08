@@ -1,25 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmitchel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/18 18:44:38 by tmitchel          #+#    #+#             */
-/*   Updated: 2023/06/08 10:51:21 by tmitchel         ###   ########.fr       */
+/*   Created: 2023/06/07 08:12:08 by tmitchel          #+#    #+#             */
+/*   Updated: 2023/06/07 08:41:58 by tmitchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_print_numbers(void)
+char    *ft_strcpy(char *s1, char *s2);
+
+/* int	main(void)
 {
-	char	i;
+	char	*src;
+	char 	dest[11];
 
-	i = '0';
-	while (i <= '9')
+	src = "test string";
+	printf("src: %s, dest: %s\n", src, dest);
+	ft_strcpy(src, dest);
+	printf("src: %s, dest: %s\n", src, dest);
+	return (0);
+} */
+
+char    *ft_strcpy(char *s1, char *s2)
+{
+	int		i;
+
+	i = 0;
+	while (s2[i] != '\0')
 	{
-		write(1, &i, 1);
+		s1[i] = s2[i];
 		i++;
 	}
+	s2[i] = '\0';
+	return (s1);
 }
